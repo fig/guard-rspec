@@ -20,9 +20,9 @@ group :specs, halt_on_fail: true do
       rspec.spec.call("lib/guard/rspec/template")
     end
   end
-
-  guard :rubocop, all_on_start: false do
-    watch(/.+\.rb$/)
-    watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
-  end
+  #
+  # guard :rubocop, all_on_start: false do
+  #   watch(/.+\.rb$/)
+  #   watch(%r{(?:.+/)?\.rubocop\.yml$}) { |m| File.dirname(m[0]) }
+  # end
 end
