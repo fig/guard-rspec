@@ -124,7 +124,7 @@ RSpec.describe Guard::RSpecFormatter do
       let(:spec_filename) { "failed_location_spec.rb" }
 
       def expected_output(spec_filename)
-        /^3 examples, 1 failures in 123\.0 seconds\n#{spec_filename}\n$/
+        /^3 examples, 1 failures in 123 seconds\n#{spec_filename}\n$/
       end
 
       it "writes summary line and failed location in tmp dir" do
@@ -219,7 +219,7 @@ RSpec.describe Guard::RSpecFormatter do
     context "with only success" do
       it "notifies success" do
         formatter.dump_summary(*summary_with_no_failures)
-        expect(result).to match(/^3 examples, 0 failures in 123\.0 seconds\n$/)
+        expect(result).to match(/^3 examples, 0 failures in 123 seconds\n$/)
       end
     end
 
@@ -227,7 +227,7 @@ RSpec.describe Guard::RSpecFormatter do
       it "notifies pending too" do
         formatter.dump_summary(*summary_with_only_pending)
         expect(result).to match(
-          /^3 examples, 0 failures \(1 pending\) in 123\.0 seconds\n$/
+          /^3 examples, 0 failures \(1 pending\) in 123 seconds\n$/
         )
       end
     end
