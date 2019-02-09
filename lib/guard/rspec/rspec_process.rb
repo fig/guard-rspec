@@ -22,16 +22,10 @@ module Guard
         exit_code.zero?
       end
 
-      # # Returns true if there is an error AND examples are not run.
-      # def error_and_examples_not_run?
-      #   error = "error occurred outside of examples"
-      #   summary_regexp = /\A0 examples, 0 failures( \((\d+) #{error}\))?/
-      #   !!results.summary.match(summary_regexp)
-      # end
-
       # Returns true if there is an error AND examples are not run.
       def error_and_examples_not_run?
-        summary_regexp = /\A0 examples, 0 failures, \d+ error/
+        error = "error occurred outside of examples"
+        summary_regexp = /\A0 examples, 0 failures( \((\d+) #{error}\))?/
         !!results.summary.match(summary_regexp)
       end
 
