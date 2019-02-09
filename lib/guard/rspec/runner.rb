@@ -64,6 +64,7 @@ module Guard
 
         process = RSpecProcess.new(cmd, file, options)
         results = process.results
+        puts "*****#{process.inspect}******"
         inspector.failed(results.failed_paths)
 
         all_green = process.all_green?
