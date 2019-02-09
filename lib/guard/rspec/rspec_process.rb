@@ -25,7 +25,7 @@ module Guard
       # Returns true if there is an error AND examples are not run.
       def error_and_examples_not_run?
         error = "error occurred outside of examples"
-        summary_regexp = /0 examples, 0 failures( \((\d+) #{error}\))?/
+        summary_regexp = /\A0 examples, 0 failures( \((\d+) #{error}\))?/
         !!results.summary.match(summary_regexp)
       end
 
