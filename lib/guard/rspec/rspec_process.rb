@@ -6,7 +6,7 @@ module Guard
       class Failure < RuntimeError
       end
 
-      attr_reader :results, :options
+      attr_reader :results, :options, :exit_code
 
       def initialize(command, formatter_tmp_file, options = {})
         @command = command
@@ -28,7 +28,7 @@ module Guard
         summary_regexp = /\A0 examples, 0 failures( \((\d+) #{error}\))?/
         puts "*****#{results.inspect}*****"
         puts "*****#{results.summary}*****"
-        !!results.summary.match(summary_regexp)
+        !!results.summary.match(summary_regexp) && exit_code == 2
       end
 
       private
