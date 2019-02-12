@@ -6,7 +6,7 @@ module Guard
       class Failure < RuntimeError
       end
 
-      attr_reader :results, :options
+      attr_reader :results, :options, :exit_code
 
       def initialize(command, formatter_tmp_file, options = {})
         @command = command

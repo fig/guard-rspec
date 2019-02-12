@@ -168,5 +168,15 @@ RSpec.describe Guard::RSpec::RSpecProcess do
 
       it { is_expected.to be_error_and_examples_not_run }
     end
+
+    context "when success with 10 examples" do
+      before do
+        summary = '10 examples, 0 failures'
+        allow(results).to receive(:summary).and_return(summary)
+      end
+
+      it { is_expected.to be_all_green }
+      it { is_expected.not_to be_error_and_examples_not_run }
+    end
   end
 end
