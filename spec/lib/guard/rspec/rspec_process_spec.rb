@@ -160,7 +160,7 @@ RSpec.describe Guard::RSpec::RSpecProcess do
       let(:exit_code) { 2 }
 
       before do
-        summary = '0 examples, 0 failures, 1 error occurred outside of examples'
+        summary = '0 examples, 0 failures'
         allow(results).to receive(:summary).and_return(summary)
       end
 

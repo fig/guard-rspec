@@ -24,7 +24,7 @@ module Guard
 
       # Returns true if there is an error AND examples are not run.
       def error_and_examples_not_run?
-        summary_regexp = /\A0 examples, 0 failures, \d? error/
+        summary_regexp = /\A0 examples, 0 failures/
         results.summary.match(summary_regexp) && exit_code == 2
       end
 
